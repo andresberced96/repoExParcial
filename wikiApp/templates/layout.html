@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block titulo %}{% endblock %}</title>
+	<link rel="stylesheet" href="{% static 'wiki_estilos_customizados.css' %}">
+</head>
+<body>
+	<div class="wiki_contendor_principal">
+		<div class="panel_izquierdo">
+			<div class="bloque_busqueda">
+
+			</div>
+			<div class="listado_temas">
+
+			</div>
+			<div class="botones">
+				<a class="boton_estilo" href="{% url 'wikiApp:nuevo_tema' %}">
+					<span class="boton_texto">crear nuevo tema</span>
+				</a>
+				<a class="boton_estilo" href="{% url 'wikiApp:nuevo_articulo' %}">
+					<span class="boton_texto">crear nuevo articulo</span>
+				</a>
+			</div>
+		</div>
+		<div class="panel_derecho">
+			<div class="titulo_seccion">
+				<p>{% block encabezado %}{% endblock %}</p>
+			</div>
+			<div class="visualizacion_seccion">
+				{% block contenido %}{% endblock %}
+			</div>
+		</div>	
+	</div>		
+</body>
+</html>>
