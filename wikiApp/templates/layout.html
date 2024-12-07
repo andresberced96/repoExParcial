@@ -8,11 +8,37 @@
 <body>
 	<div class="wiki_contendor_principal">
 		<div class="panel_izquierdo">
+			<div class="home">
+				<a class="link_home" href="{% url 'wikiApp:principal' %}">
+					<img class="imagen_home" src="{% static 'home.png' %}">
+				</a>
+			</div>
 			<div class="bloque_busqueda">
-
+				<div class="barra_busqueda">
+					<div class="barra_busqueda_texto">
+						<input class="busqueda_texto_estilos" type="text" id="buscador" name="buscador" placeholder="Escriba su busqueda en wikiApp">
+					</div>
+					<div class="barra_busqueda_icono">
+						<button class="boton_busqueda">
+							<img class="imagen_busqueda" src="{% static 'buscador.png' %}">
+						</button>
+					</div>
+				</div>
 			</div>
 			<div class="listado_temas">
-
+				<div class="bloque_titulo_tema">
+					<span class="listado_temas_titulo">Lista de temas</span>
+				</div>
+				<ol>
+					{% for tema in temas %}
+					<br>
+					<li>
+						<ul style="list-style: none;">
+							<li><a>Nombre de tema : {{ tema.nombre_tema }}</a></li>
+						</ul>
+					</li>
+					{% endfor %}
+				</ol>		
 			</div>
 			<div class="botones">
 				<a class="boton_estilo" href="{% url 'wikiApp:nuevo_tema' %}">
@@ -33,4 +59,4 @@
 		</div>	
 	</div>		
 </body>
-</html>>
+</html>

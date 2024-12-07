@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "principal.html" %}
 {% block titulo%}
 	Nuevo Tema
 {%endblock%}
@@ -6,5 +6,20 @@
 	Nuevo Tema
 {%endblock%}
 {% block contenido%}
-	
+	<form class="formulario_bloque" method="post" action="{% url 'wikiApp:nuevo_tema' %}">
+		{% csrf_token %}
+		<div class="formulario_bloque_contenedor">
+			<div class="datos_tema">
+				<input class="datos_tema_input" type="text" name="nombre_tema" placeholder="Ingrese el nombre del tema">
+			</div>
+			<div class="datos_tema">
+				<input class="datos_tema_input" type="text" name="descripcion_tema" placeholder="Ingrese la descripción del tema">
+			</div>
+			<div class="formulario_boton_contenedor">
+				<button class="btn_enviar_tema">
+					Enviar
+				</button>
+			</div>						
+		</div>
+	</form>
 {%endblock%}
