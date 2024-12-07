@@ -1,12 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>{% block titulo %}{% endblock %}</title>
-	<link rel="stylesheet" href="wiki_estilos_customizados.css">
-</head>
-<body>
-	<div class="wiki_contendor_principal">
-
-	</div>		
-</body>
-</html>
+{% extends "layout.html" %}
+{% block titulo%}
+	Listado de artículos por tema
+{%endblock%}
+{% block encabezado%}
+	Tema: {{articulo_x_tema}}
+{%endblock%}
+{% block contenido%}
+<div class="articulos_por_tema">
+	{% for articulo in articulos %}
+	<div class="articulo_titulo">
+		<ul style="list-style: none;width: 100%;">
+			<li class="centrar_titulo"><a href="{% url 'wikiApp:articulos' articulo.id %}" style="text-decoration: none;color: black;">{{ articulo.titulo }}</a></li>
+		</ul>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}

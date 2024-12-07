@@ -1,12 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>{% block titulo %}{% endblock %}</title>
-	<link rel="stylesheet" href="wiki_estilos_customizados.css">
-</head>
-<body>
-	<div class="wiki_contendor_principal">
-
-	</div>		
-</body>
-</html>
+{% extends "layout.html" %}
+{% block titulo%}
+	Artículo
+{%endblock%}
+{% block encabezado%}
+	Detalles del artículo
+{%endblock%}
+{% block contenido%}
+<div class="articulos_descripcion">
+	<div class="articulo_desc_titulo">
+		<p class="art_titulo">
+			{{articulo.titulo}}
+		</p>
+	</div>
+	<div class="articulo_desc_tema">
+		<p class="art_tema">
+			{{articulo.tema_relacionado.nombre_tema}}
+		</p>
+	</div>
+	<div class="articulo_desc_contenido">
+		<p class="art_contenido">
+			{{articulo.contenido}}
+		</p>
+	</div>	
+</div>
+{% endblock %}

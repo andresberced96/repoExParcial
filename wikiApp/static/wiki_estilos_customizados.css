@@ -31,6 +31,9 @@ body{
 	align-items: center;
 	margin-left: 5%;
 }
+.titulo_seccion_estilo{
+	font-size: 1.6rem !important;
+}
 .bloque_busqueda{
 	height: 20%;
 }
@@ -101,7 +104,7 @@ a.nostyle:visited {
 }
 .barra_busqueda_icono{
 	width: 25%;
-	height: 6vh;
+	height: 5.8vh;
 }
 .boton_busqueda{
 	height: 100%;
@@ -191,4 +194,58 @@ a.nostyle:visited {
 	border-radius: 8px;
 	border:solid 1px #818589;
 	background-color: transparent;
+}
+.altura_area{
+	height: 12vh !important;
+}
+/*-------------------------------ARTICULOS POR TEMA-----------------------------------*/
+.articulos_por_tema{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.articulo_titulo{
+	width: 40%;
+	background-color: khaki;
+	margin-top: 1.5rem;
+	border-radius: 10px;
+	text-align: center;
+	margin-right: 3rem;
+}
+.centrar_titulo{
+	position: relative;
+	width: 100%;
+	right: 2.5rem;
+}
+/*-------------------------------------ARTICULOS----------------------------------------*/
+.articulos_descripcion{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.articulo_desc_titulo{
+	width: 100%;
+	text-align: center;
+}
+.art_titulo{
+	font-size: 2.0rem;
+}
+.articulo_desc_tema{
+	width: 100%;
+	text-align: center;
+}
+.art_tema{
+	font-size: 1.4rem;
+}
+.articulo_desc_contenido{
+	width: 100%;
+	text-align: center;
+}
+.art_contenido{
+	width: 66%;
+	margin: 0 auto;
+	text-align: justify;
+	font-size: 1.2rem;
 }

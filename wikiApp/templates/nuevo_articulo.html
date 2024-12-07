@@ -1,4 +1,4 @@
-{% extends "principal.html" %}
+{% extends "layout.html" %}
 {% block titulo%}
 	Nuevo Articulo
 {%endblock%}
@@ -6,23 +6,23 @@
 	Nuevo Articulo
 {%endblock%}
 {% block contenido%}
-<form class="formulario_bloque" method="post" action="{% url 'wikiApp:nuevo_tema' %}">
+<form class="formulario_bloque" method="post" action="{% url 'wikiApp:nuevo_articulo' %}">
 	{% csrf_token %}
 	<div class="formulario_bloque_contenedor">
 		<div class="datos_tema">
-			<input class="datos_tema_input" type="text" name="titulo_articulo" placeholder="Ingrese el nombre del articulo">
+			<input class="datos_tema_input" type="text" name="titulo" placeholder="Ingrese el título del articulo">
 		</div>
 		<div class="datos_tema">
-			<select class="selector_tema">
+			<select name="tema_relacionado" class="selector_tema">
 				{% for tema in temas %}
-				<option>
+				<option value="{{tema.id}}">
 					{{ tema.nombre_tema }}
 				</option>
 				{% endfor %}							
 			</select>
 		</div>
 		<div class="datos_tema">
-			<input class="datos_tema_input" type="text" name="descripcion_tema" placeholder="Ingrese la descripción del tema">
+			<textarea class="datos_tema_input altura_area" name="contenido" placeholder="Ingrese el contenido del artículo" rows="4" cols="50"></textarea>
 		</div>
 		<div class="formulario_boton_contenedor">
 			<button class="btn_enviar_tema">

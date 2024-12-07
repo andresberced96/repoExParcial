@@ -34,7 +34,7 @@
 					<br>
 					<li>
 						<ul style="list-style: none;">
-							<li><a>Nombre de tema : {{ tema.nombre_tema }}</a></li>
+							<li><a href="{% url 'wikiApp:articulos_x_tema' tema.id %}" style="text-decoration: none;color: black;">{{ tema.nombre_tema }}</a></li>
 						</ul>
 					</li>
 					{% endfor %}
@@ -51,7 +51,7 @@
 		</div>
 		<div class="panel_derecho">
 			<div class="titulo_seccion">
-				<p>{% block encabezado %}{% endblock %}</p>
+				<p class="titulo_seccion_estilo">{% block encabezado %}{% endblock %}</p>
 			</div>
 			<div class="visualizacion_seccion">
 				{% block contenido %}{% endblock %}

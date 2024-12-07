@@ -7,4 +7,4 @@ class temaWiki(models.Model):
 class articuloWiki(models.Model):
     titulo = models.CharField(max_length=128)
     contenido = models.CharField(max_length=1024)
-    tema_relacionado = models.ForeignKey(temaWiki, null=True, blank=True, on_delete=models.CASCADE)
+    tema_relacionado = models.ForeignKey(temaWiki, null=True, blank=True, on_delete=models.SET_NULL)
