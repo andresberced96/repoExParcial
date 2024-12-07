@@ -53,6 +53,12 @@ def articulos(request,id_articulo):
     })
 def busqueda(request):
     temas = temaWiki.objects.all()
+    lista_articulos = []
+    if request.method == 'POST':
+        buscador = request.POST.get('buscador')
+        if(buscador != ""):
+            lista_articulos = articuloWiki.objects.filter(titulo__icontains=buscador) 
+            print("articulos",lista_articulos)
     return render(request, 'busqueda.html',{
-        'temas': temas
+        'temas': temas, 'articulos':lista_articulos
     })

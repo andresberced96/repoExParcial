@@ -14,15 +14,18 @@
 				</a>
 			</div>
 			<div class="bloque_busqueda">
-				<div class="barra_busqueda">
-					<div class="barra_busqueda_texto">
-						<input class="busqueda_texto_estilos" type="text" id="buscador" name="buscador" placeholder="Escriba su busqueda en wikiApp">
-					</div>
-					<div class="barra_busqueda_icono">
-						<button class="boton_busqueda">
-							<img class="imagen_busqueda" src="{% static 'buscador.png' %}">
-						</button>
-					</div>
+				<div class="barra_busqueda_contenedor">
+					<form class="barra_busqueda" method="post" action="{% url 'wikiApp:busqueda' %}">
+						{% csrf_token %}
+						<div class="barra_busqueda_texto">
+							<input class="busqueda_texto_estilos" type="text" id="buscador" name="buscador" placeholder="Escriba su busqueda en wikiApp">
+						</div>
+						<div class="barra_busqueda_icono">
+							<button class="boton_busqueda">
+								<img class="imagen_busqueda" src="{% static 'buscador.png' %}">
+							</button>
+						</div>
+					</form>	
 				</div>
 			</div>
 			<div class="listado_temas">
