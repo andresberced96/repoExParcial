@@ -1,12 +1,16 @@
+<!--Uso de la Plantilla 'layout.html'-->
 {% extends "layout.html" %}
+<!--Título de la web en la ventana-->
 {% block titulo%}
 	Listado de artículos buscados
 {%endblock%}
+<!--Encabezado usado como título-->
 {% block encabezado%}
 	Artículos encontrados
 {%endblock%}
 {% block contenido%}
 <div class="articulos_por_tema">
+<!--Se generan los elementos de la lista con la lista pasada como parámetro en el archivo views.py-->	
 	{% for articulo in articulos %}
 	<div class="articulo_titulo">
 		<ul style="list-style: none;width: 100%;">

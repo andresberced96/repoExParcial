@@ -1,23 +1,32 @@
+<!--Uso del contenido del directorio Static (imágenes y estilos)-->
 {% load static %}
 <!DOCTYPE html>
 <html>
 <head>
+<!--Estructura para pasar el título de la página como parámetro-->
 	<title>{% block titulo %}{% endblock %}</title>
+<!--Archivo de estilos CSS-->	
 	<link rel="stylesheet" href="{% static 'wiki_estilos_customizados.css' %}">
 </head>
 <body>
+<!--Contenedor principal de la plantilla de la página-->	
 	<div class="wiki_contendor_principal">
+<!--Panel izquierdo de la página-->		
 		<div class="panel_izquierdo">
+<!--Botón para regresar a la página de inicio-->				
 			<div class="home">
 				<a class="link_home" href="{% url 'wikiApp:principal' %}">
 					<img class="imagen_home" src="{% static 'home.png' %}">
 				</a>
 			</div>
+<!--Sección de la barra de búsqueda de la web-->				
 			<div class="bloque_busqueda">
 				<div class="barra_busqueda_contenedor">
+<!--Formulario para el envío del título del artículo buscado, nos dirige a la vista busqueda.html-->						
 					<form class="barra_busqueda" method="post" action="{% url 'wikiApp:busqueda' %}">
 						{% csrf_token %}
 						<div class="barra_busqueda_texto">
+<!--Envío del parámetro buscador (texto ingresado)-->									
 							<input class="busqueda_texto_estilos" type="text" id="buscador" name="buscador" placeholder="Escriba su busqueda en wikiApp">
 						</div>
 						<div class="barra_busqueda_icono">
@@ -32,17 +41,20 @@
 				<div class="bloque_titulo_tema">
 					<span class="listado_temas_titulo">Lista de temas</span>
 				</div>
+<!--Generación de una lista ordenada con los temas creados-->						
 				<ol>
 					{% for tema in temas %}
 					<br>
 					<li>
 						<ul style="list-style: none;">
+<!--Redirección a la vista de articulos_x_tema.html pasando como parámetro el id del tema seleccionado-->									
 							<li><a href="{% url 'wikiApp:articulos_x_tema' tema.id %}" style="text-decoration: none;color: black;">{{ tema.nombre_tema }}</a></li>
 						</ul>
 					</li>
 					{% endfor %}
 				</ol>		
 			</div>
+<!--Creación de los botones para la redirección a crear nuevo tema y crear nuevo artículo-->					
 			<div class="botones">
 				<a class="boton_estilo" href="{% url 'wikiApp:nuevo_tema' %}">
 					<span class="boton_texto">crear nuevo tema</span>
@@ -52,6 +64,7 @@
 				</a>
 			</div>
 		</div>
+<!--Panel derecho de la página, esta sección será customizada por cada una de las vistas-->			
 		<div class="panel_derecho">
 			<div class="titulo_seccion">
 				<p class="titulo_seccion_estilo">{% block encabezado %}{% endblock %}</p>

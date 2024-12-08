@@ -1,11 +1,15 @@
+<!--Uso de la Plantilla 'layout.html'-->
 {% extends "layout.html" %}
+<!--Título de la web en la ventana-->
 {% block titulo%}
 	Nuevo Articulo
 {%endblock%}
+<!--Encabezado usado como título-->
 {% block encabezado%}
 	Nuevo Articulo
 {%endblock%}
 {% block contenido%}
+<!--Se crea el formulario para el envío de los campos titulo, tema_relacionado y contenido-->
 <form class="formulario_bloque" method="post" action="{% url 'wikiApp:nuevo_articulo' %}">
 	{% csrf_token %}
 	<div class="formulario_bloque_contenedor">

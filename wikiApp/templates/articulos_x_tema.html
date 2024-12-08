@@ -1,15 +1,20 @@
+<!--Uso de la Plantilla 'layout.html'-->
 {% extends "layout.html" %}
+<!--Título de la web en la ventana-->
 {% block titulo%}
 	Listado de artículos por tema
 {%endblock%}
+<!--Encabezado usado como título-->
 {% block encabezado%}
 	Tema: {{articulo_x_tema}}
 {%endblock%}
 {% block contenido%}
+<!--Contenedor general para la lista de artículos por tema-->
 <div class="articulos_por_tema">
 	{% for articulo in articulos %}
 	<div class="articulo_titulo">
 		<ul style="list-style: none;width: 100%;">
+<!--Se muestra el título de cada artículo que contiene el id del tema enviado como parámetro, se envía el id del artículo para ser usado en la vista de artículos-->
 			<li class="centrar_titulo"><a href="{% url 'wikiApp:articulos' articulo.id %}" style="text-decoration: none;color: black;">{{ articulo.titulo }}</a></li>
 		</ul>
 	</div>

@@ -1,11 +1,15 @@
+<!--Uso de la Plantilla 'layout.html'-->
 {% extends "layout.html" %}
+<!--Título de la web en la ventana-->
 {% block titulo%}
 	Artículo
 {%endblock%}
+<!--Encabezado usado como título-->
 {% block encabezado%}
 	Detalles del artículo
 {%endblock%}
 {% block contenido%}
+<!--Estructuración de los contenedores para los detalles del artículo, título, tema_relacionado y contenido-->
 <div class="articulos_descripcion">
 	<div class="articulo_desc_titulo">
 		<p class="art_titulo">
